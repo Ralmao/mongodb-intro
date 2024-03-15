@@ -1,0 +1,27 @@
+// Cambia el tipo de usuario a 'Costumer' de todas los documentos que tripduration mayores a 2000
+use("sample_training")
+db.trips.updateMany(    
+    // query
+    {tripduration: {$gt: 2000}},
+    // update with operations
+    {$set: {usertype: "Costumer"}}
+)
+// Muestra todos los documentos con tripduration mayor a 2000
+use("sample_training")
+db.trips.find({
+    tripduration: {$gt: 2000}
+})
+
+// Cambia el tipo de usuario a 'Subscriber' de todas los documentos que tripduration mayores o iguales a 2600
+use("sample_training")
+db.trips.updateMany(    
+    // query
+    {tripduration: {$gte: 2600}},
+    // update with operations
+    {$set: {usertype: "Subscriber"}}
+)
+// Muestra todos los documentos con tripduration mayor o igual a 2600
+use("sample_training")
+db.trips.find({
+    tripduration: {$gte: 2600}
+})
